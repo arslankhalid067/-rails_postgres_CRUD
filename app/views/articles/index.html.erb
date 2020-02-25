@@ -1,0 +1,24 @@
+<%= link_to 'Add New Article', new_article_path, class: "btn btn-info m-3" %>
+
+<div class="container">
+    <h1>All Articles</h1>
+    <div class="row">
+        <% @articles.each do |article| %>
+
+            <div class="col-lg-4 mb-3">
+                <div class="card">
+                    <% if article.image.attached?%>
+                        <img class="card-img-top" src="<%= url_for(article.image) %>" alt="Card image cap">
+                    <%end%>
+                    <div class="card-body">
+                        <h4 class="card-title"><%= link_to article.title, article %></h4>
+                        <p class="card-text"><%= truncate(article.body,length: 200) %> <%= link_to 'Read More',article_path(article )%></p>
+                        <p>Posted <%=time_ago_in_words(article.created_at)%> Ago</p>
+                        <a href="<%= edit_article_path(article)%>" class="card-link text-info">Edit Article</a>
+                        <%= link_to 'Delete Article', article_path(article), method: :delete, data: {confirm: "Are you sure?"}, class: "card-link text-danger"%>
+                    </div>
+                </div>
+            </div>
+        <%end%>
+    </div>
+</div>   

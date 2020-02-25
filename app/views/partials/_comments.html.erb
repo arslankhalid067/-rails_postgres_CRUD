@@ -1,0 +1,12 @@
+<ul style="list-style-type:none">
+<% @article.comments.each do |comment|%>
+    <li>
+        <strong><%= comment.commenter+":" %></strong>
+        <%= comment.body %>
+      
+        <%= link_to 'Delete Comment', [comment.article,comment], method: :delete, class: "text-danger"%>
+        <hr />
+    </li>    
+    
+<% end %>
+</ul>

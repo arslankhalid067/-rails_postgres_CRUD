@@ -1,0 +1,20 @@
+<%= render './partials/errors'%>
+<div class="col-lg-6 offset-lg-3">
+<%= form_with model: @article, local: true do |form|  %>
+    <p>
+        <%= form.label :title%>
+        <%= form.text_field :title ,class: "form-control"  %>
+    </p>
+    <p>
+        <%= form.label :body %>
+        <%= form.text_area :body , class: "form-control" , rows: "20"%>
+    </p>
+    <p>
+        <%= form.label :image %>
+        <%= form.file_field :image%>
+    </p>
+    <p>
+    <%= form.submit class: "btn btn-info" %>
+    </p>
+<%end%>
+</div>
