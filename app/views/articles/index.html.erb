@@ -1,5 +1,6 @@
 <%= link_to 'Add New Article', new_article_path, class: "btn btn-info m-3" %>
-
+<%= current_user.id %>
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>.
 <div class="container">
     <h1>All Articles</h1>
     <div class="row">
