@@ -1,5 +1,12 @@
+<div class="container">
 <% if @article.errors.any? %>
+<div class="text-danger ml-5 p-5">
+  <h3><%=pluralize(@article.errors.count,'Error')%></h3>
+  <ul>
       <% @article.errors.full_messages.each do |error| %>
-        <%= error %>
+        <li> <%= error %></li>    
       <%end%>
-<%end%>
+  </ul>
+  </div>
+  <%end%>
+</div>

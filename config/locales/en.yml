@@ -31,3 +31,13 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      article:
+        title: "Title"
+    errors:
+      models:
+        article:
+          attributes:
+            title:
+              blank: "is Required"
