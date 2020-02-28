@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-    before_action :authenticate_user!
+    
     before_action  :get_user_article, only: [:show,:edit,:update,:destroy]
     def index
         @articles=current_user.articles.order("created_at ASC")
@@ -34,7 +34,9 @@ class ArticlesController < ApplicationController
         @article.destroy
         redirect_to articles_path
     end
-
+    def welcome
+        
+    end
     private
         def article_params
             params.require(:article).permit(:title,:body, :image,:user_id)
