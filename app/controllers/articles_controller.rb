@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
-    
     before_action  :get_user_article, only: [:show,:edit,:update,:destroy]
+    
     def index
-        @articles=current_user.articles.order("created_at ASC")
+        @articles=current_user.articles.order("created_at ASC").page params[:page]
     end
     def new
         @article=current_user.articles.new
